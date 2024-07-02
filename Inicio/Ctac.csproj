@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB357619-12FB-45F3-BA58-0BBF344A8ACF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Inicio</RootNamespace>
+    <AssemblyName>Inicio</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\DepartamentoDAO.cs" />
+    <Compile Include="Clases\DirrecionDAO.cs" />
+    <Compile Include="Clases\DistritoDAO.cs" />
+    <Compile Include="Cuota.cs" />
+    <Compile Include="CuotaDao.cs" />
+    <Compile Include="Formularios\CrearDirrecion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CrearDirrecion.Designer.cs">
+      <DependentUpon>CrearDirrecion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\CalcularFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CalcularFinanciacion.Designer.cs">
+      <DependentUpon>CalcularFinanciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Cat_proyecto.cs" />
+    <Compile Include="Clases\Comanda.cs" />
+    <Compile Include="Clases\ComandaDao.cs" />
+    <Compile Include="Formularios\CrearFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CrearFinanciacion.Designer.cs">
+      <DependentUpon>CrearFinanciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Financiacion.cs" />
+    <Compile Include="Clases\FinanciacionDao.cs" />
+    <Compile Include="Formularios\CrearComanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CrearComanda.Designer.cs">
+      <DependentUpon>CrearComanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\CrearProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CrearProyecto.Designer.cs">
+      <DependentUpon>CrearProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\EstadoProyecto.cs" />
+    <Compile Include="Formularios\AgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarCliente.Designer.cs">
+      <DependentUpon>AgregarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Cuenta.cs" />
+    <Compile Include="Clases\Direccion.cs" />
+    <Compile Include="Formularios\AgregarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarSucursal.Designer.cs">
+      <DependentUpon>AgregarSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AgregarVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarVehiculo.Designer.cs">
+      <DependentUpon>AgregarVehiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Compra.cs" />
+    <Compile Include="Clases\CompraDao.cs" />
+    <Compile Include="Clases\Rol.cs" />
+    <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="Clases\ClienteDao.cs" />
+    <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="Clases\DetalleCompra.cs" />
+    <Compile Include="Clases\DetalleCompraDao.cs" />
+    <Compile Include="Formularios\CrearSueldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CrearSueldo.Designer.cs">
+      <DependentUpon>CrearSueldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\crearCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\crearCuenta.Designer.cs">
+      <DependentUpon>crearCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\crearEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\crearEmpleado.Designer.cs">
+      <DependentUpon>crearEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\CuentaDAO.cs" />
+    <Compile Include="Clases\EmpleadoDAO.cs" />
+    <Compile Include="Formularios\crearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\crearUsuario.Designer.cs">
+      <DependentUpon>crearUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\DetalleVenta.cs" />
+    <Compile Include="Clases\Envio.cs" />
+    <Compile Include="Clases\EnvioDao.cs" />
+    <Compile Include="Formularios\EnvioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\EnvioForm.Designer.cs">
+      <DependentUpon>EnvioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AgregarProducto.Designer.cs">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Compras.Designer.cs">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionesEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionesEmpleado.Designer.cs">
+      <DependentUpon>opcionesEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionesProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionesProductos.Designer.cs">
+      <DependentUpon>opcionesProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionFinanciacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionFinanciacion.Designer.cs">
+      <DependentUpon>opcionFinanciacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionProyectos.Designer.cs">
+      <DependentUpon>opcionProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionRecursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionRecursos.Designer.cs">
+      <DependentUpon>opcionRecursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionSucursal.Designer.cs">
+      <DependentUpon>opcionSucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\opcionVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\opcionVentas.Designer.cs">
+      <DependentUpon>opcionVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ProveedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProveedorForm.Designer.cs">
+      <DependentUpon>ProveedorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Marca.cs" />
+    <Compile Include="Clases\MarcaDao.cs" />
+    <Compile Include="Formularios\HistorialCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\HistorialCompras.Designer.cs">
+      <DependentUpon>HistorialCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\HistorialVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\HistorialVentas.Designer.cs">
+      <DependentUpon>HistorialVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IFormularioHijo.cs" />
+    <Compile Include="Formularios\Marcaformcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Marcaformcs.Designer.cs">
+      <DependentUpon>Marcaformcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Producto.cs" />
+    <Compile Include="Clases\ProductoDao.cs" />
+    <Compile Include="Formularios\ProductosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProductosForm.Designer.cs">
+      <DependentUpon>ProductosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagarCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagarCuota.Designer.cs">
+      <DependentUpon>PagarCuota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Clases\UsuarioDAO.cs" />
+    <Compile Include="Clases\ProveedorDao.cs" />
+    <Compile Include="Clases\Proveedorn.cs" />
+    <Compile Include="Clases\Venta.cs" />
+    <Compile Include="Clases\VentaDao.cs" />
+    <Compile Include="Formularios\VentasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VentasForm.Designer.cs">
+      <DependentUpon>VentasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Sueldod.cs" />
+    <Compile Include="Clases\VehiculoDAO.cs" />
+    <Compile Include="Clases\SucursalDAO.cs" />
+    <Compile Include="Clases\Sucursale.cs" />
+    <Compile Include="Clases\Proyecto.cs" />
+    <Compile Include="Clases\ProyectoDao.cs" />
+    <Compile Include="Clases\TipoPago.cs" />
+    <Compile Include="Formularios\VerProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VerProyectos.Designer.cs">
+      <DependentUpon>VerProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\SeleccionarVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\SeleccionarVehiculo.Designer.cs">
+      <DependentUpon>SeleccionarVehiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Vehiculo.cs" />
+    <Compile Include="Formularios\VerComanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VerComanda.Designer.cs">
+      <DependentUpon>VerComanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\SeleccionarProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clases\SeleccionarProyecto.Designer.cs">
+      <DependentUpon>SeleccionarProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\VerFinanciaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\VerFinanciaciones.Designer.cs">
+      <DependentUpon>VerFinanciaciones.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\CalcularFinanciacion.resx">
+      <DependentUpon>CalcularFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CrearDirrecion.resx">
+      <DependentUpon>CrearDirrecion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CrearFinanciacion.resx">
+      <DependentUpon>CrearFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CrearComanda.resx">
+      <DependentUpon>CrearComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CrearProyecto.resx">
+      <DependentUpon>CrearProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarCliente.resx">
+      <DependentUpon>AgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarSucursal.resx">
+      <DependentUpon>AgregarSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarVehiculo.resx">
+      <DependentUpon>AgregarVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CrearSueldo.resx">
+      <DependentUpon>CrearSueldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\crearCuenta.resx">
+      <DependentUpon>crearCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\crearEmpleado.resx">
+      <DependentUpon>crearEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\crearUsuario.resx">
+      <DependentUpon>crearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\EnvioForm.resx">
+      <DependentUpon>EnvioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarProducto.resx">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Compras.resx">
+      <DependentUpon>Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionesEmpleado.resx">
+      <DependentUpon>opcionesEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionesProductos.resx">
+      <DependentUpon>opcionesProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionFinanciacion.resx">
+      <DependentUpon>opcionFinanciacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionProyectos.resx">
+      <DependentUpon>opcionProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionRecursos.resx">
+      <DependentUpon>opcionRecursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionSucursal.resx">
+      <DependentUpon>opcionSucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\opcionVentas.resx">
+      <DependentUpon>opcionVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ProveedorForm.resx">
+      <DependentUpon>ProveedorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\HistorialCompras.resx">
+      <DependentUpon>HistorialCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Marcaformcs.resx">
+      <DependentUpon>Marcaformcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ProductosForm.resx">
+      <DependentUpon>ProductosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\HistorialVentas.resx">
+      <DependentUpon>HistorialVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagarCuota.resx">
+      <DependentUpon>PagarCuota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Formularios\VentasForm.resx">
+      <DependentUpon>VentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VerProyectos.resx">
+      <DependentUpon>VerProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\SeleccionarVehiculo.resx">
+      <DependentUpon>SeleccionarVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VerComanda.resx">
+      <DependentUpon>VerComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clases\SeleccionarProyecto.resx">
+      <DependentUpon>SeleccionarProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\VerFinanciaciones.resx">
+      <DependentUpon>VerFinanciaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-hamburguesa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizar-tamano.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar-ventana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos-pequeno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restaurar-ventana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\casco-de-seguridad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-compras %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carrito-de-compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\casco-de-seguridad1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usd-circulo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja-de-herramientas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edificio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alt-de-inventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\store-buyer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\store-buyer %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-c %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\agregar-usuario.png" />
+    <Content Include="Resources\archivo-factura-dolar.png" />
+    <None Include="Resources\tools-4088531_1280.jpg" />
+    <None Include="Resources\truck-2707699_1280.jpg" />
+    <None Include="Resources\worker-8463424_1280.jpg" />
+    <None Include="Resources\venta.png" />
+    <None Include="Resources\ubicacion-del-terreno.png" />
+    <None Include="Resources\votacion.png" />
+    <None Include="Resources\usuarios-alt.png" />
+    <None Include="Resources\circulo-de-usuario.png" />
+    <None Include="Resources\cheque-de-dinero.png" />
+    <None Include="Resources\flecha-del-carrito-hacia-abajo.png" />
+    <None Include="Resources\caja-abierta.png" />
+    <None Include="Resources\comprobacion-de-insignias.png" />
+    <None Include="Resources\comprador-del-carrito-de-compras.png" />
+    <None Include="Resources\dinero-calculadora.png" />
+    <None Include="Resources\construir-alternativa.png" />
+    <None Include="Resources\carros.png" />
+    <None Include="Resources\flecha-del-camion-hacia-la-derecha.png" />
+    <None Include="Resources\building-2762236_1280.jpg" />
+    <None Include="Resources\buildings-217878_1280.jpg" />
+    <None Include="Resources\ctacfondo1.jpg" />
+    <Content Include="Resources\hombre-empleado.png" />
+    <None Include="Resources\industrial-hall-1630741_1280.jpg" />
+    <None Include="Resources\industrial-hall-1630741_12801.jpg" />
+    <Content Include="Resources\lado-del-coche.png" />
+    <None Include="Resources\manos-usd.png" />
+    <None Include="Resources\money-cheque-editar %281%29.png" />
+    <Content Include="Resources\money-cheque-editar.png" />
+    <None Include="Resources\money-cheque-editar1.png" />
+    <None Include="Resources\proveedor-alternativo.png" />
+    <None Include="Resources\tarifa.png" />
+    <None Include="Resources\plano.png" />
+    <None Include="Resources\remolque-de-camion.png" />
+    <None Include="Resources\pico.png" />
+    <None Include="Resources\revisar.png" />
+    <None Include="Resources\tienda-alt.png" />
+    <None Include="Resources\stock-1863880_1280.jpg" />
+    <None Include="Resources\supermarket-507295_1280.jpg" />
+    <Content Include="Resources\tienda-del-mercado.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
